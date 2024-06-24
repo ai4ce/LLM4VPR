@@ -1,5 +1,5 @@
 ## *Tell Me Where You Are*: Multimodal LLMs Meet Place Recognition
-[Zonglin Lyu](https://zonglinl.github.io/), [Juexiao Zhang](https://juexzz.github.io/), Mingxuan Lu, Yiming Li, Chen Feng
+[Zonglin Lyu](https://zonglinl.github.io/), [Juexiao Zhang](https://juexzz.github.io/), [Mingxuan Lu](https://scholar.google.com/citations?user=m4ChlREAAAAJ&hl=en), [Yiming Li](https://yimingli-page.github.io/), [Chen Feng](https://ai4ce.github.io/)
 
 
 ### Datasets
