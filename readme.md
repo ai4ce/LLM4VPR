@@ -2,6 +2,10 @@
 Zonglin Lyu, Juexiao Zhang, Mingxuan Lu, Yiming Li, Chen Feng
 
 
+### Datasets
+
+Please refer to [Anyloc](https://github.com/AnyLoc/AnyLoc) for dataset download. We included Baidu Mall, Pittsburgh30K, and Tokyo247.
+
 ### Vision Foundation Model
 
 Please refer to [Anyloc](https://github.com/AnyLoc/AnyLoc) for Vision Foundation Model. We employed DINO-v2-GeM in their setup. 
