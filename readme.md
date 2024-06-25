@@ -10,7 +10,7 @@ Please refer to [Anyloc](https://github.com/AnyLoc/AnyLoc) for dataset download.
 
 Please refer to [Anyloc](https://github.com/AnyLoc/AnyLoc) for Vision Foundation Model. We employed DINO-v2-GeM in their setup. 
 
-Save your Coarse retrieval results (with supervised models) as the followng structures:
+Save your Coarse retrieval results as the followng structures:
 
 ```
 └──── <working directory>/
