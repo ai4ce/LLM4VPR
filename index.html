@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="LLM4VPR">
+    <meta name="keywords" content="Visual place recognition, Multimodal LLM">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LLM4VPR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .abstract {
+            background-color: #f3f1f1;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .pipeline {
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .pipeline h2 {
+            text-align: left;
+            margin-left: 20px;
+        }
+        .pipeline img {
+            width: 900px;
+            margin-left: 20px;
+        }
+        .pipeline .content {
+            display: flex;
+            flex-direction: column;
+        }
+        .stage {
+            margin-top: 20px;
+        }
+        .stage h3 {
+            text-align: left;
+            margin-left: 400px;
+        }
+        .result {
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .result h2 {
+            text-align: left;
+            margin-left: 20px;
+        }
+        .result img {
+            /* background-color: #f90808; */
+            width: 900px;
+            margin-left: 20px;
+        }
+        .result .content {
+            display: flex;
+            flex-direction: column;
+        }
+        .bibtex-section {
+            border-radius: 5px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+        .bibtex-section h2 {
+            font-size: 2em;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .bibtex pre {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1em;
+            white-space: pre;
+            padding: 10px;
+            color: #333;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="./static/images/ai4ce.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./misc/css/bulma.min.css">
+    <link rel="stylesheet" href="./misc/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./misc/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./misc/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./misc/css/index.css">
+    <link rel="icon" href="./misc/images/ai4ce.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./misc/js/fontawesome.all.min.js"></script>
+    <script src="./misc/js/bulma-carousel.min.js"></script>
+    <script src="./misc/js/bulma-slider.min.js"></script>
+    <script src="./misc/js/index.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-2 publication-title">Tell Me Where You Are: Multimodal LLMs Meet Place Recognition</h1>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="zonglinl.github.io">Zonglin Lyu</a>,</span>
+
+                            <span class="author-block">
+                                <a href="https://juexzz.github.io">Juexiao Zhang</a>,</span>
+
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=m4ChlREAAAAJ&hl=en">Mingxuan Lu</a>,</span>
+
+                            <span class="author-block">
+                                <a href="https://roboticsyimingli.github.io">Yiming Li</a>,</span>
+
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ&hl=en">Chen
+                                    Feng</a>
+                            </span>
+
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">New York University</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+
+                                <span class="link-block">
+                                <a href=""
+                                    class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                <i class="ai ai-arxiv"></i>
+                                </span>
+                                <span>Paper</span>
+                                </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/ai4ce/LLM4VPR"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video(Coming)</span>
+                                    </a>
+                                </span> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-full_width">
+        <img src="misc/images/Teaser.pdf" alt="Motivation Image" class="center">
+        </div>
+    </div>
+
+    <div class="abstract">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Large language models (LLMs) exhibit a variety of promising capabilities in robotics, 
+                            including long-horizon planning and commonsense reasoning. 
+                            However, their performance in place recognition is still underexplored. 
+                            In this work, we introduce multimodal LLMs (MLLMs) to visual place recognition (VPR), 
+                            where a robot must localize itself using visual observations. 
+                            Our key design is to use <i>vision-based retrieval</i> to propose several candidates and then leverage <i>language-based reasoning</i> 
+                            to carefully inspect each candidate for a final decision. 
+                            Specifically, we leverage the robust visual features produced by off-the-shelf vision foundation models (VFMs) to obtain several candidate locations. 
+                            We then prompt an MLLM to describe the differences between the current observation and each candidate in a pairwise manner, 
+                            and reason about the best candidate based on these descriptions.  
+                            Our method is termed <b>LLM-VPR</b>.
+                            Results on three datasets demonstrate that integrating the <i>general-purpose visual features</i> from VFMs with the <i>reasoning capabilities</i> of MLLMs 
+                            already provides an effective place recognition solution, <i>without any VPR-specific supervised training</i>. 
+                            We believe LLM-VPR can inspire new possibilities for applying and designing foundation models, i.e. VFMs, LLMs, and MLLMs, 
+                            to enhance the localization and navigation of mobile robots.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pipeline">
+        <h2 class="title is-3">Pipeline</h2>
+        <img src="misc/images/Pipeline.pdf" alt="Pipeline Image">
+    </div>
+
+
+    <div class="stage">
+        <h3 class="title is-4">Stage 1: Vision-based Coarse Retrieval</h3>
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            We first use a vision foundation model (VFM) to extract visual features from the query image and the database images. 
+                            We then compute the pairwise cosine similarity between the query image and each database image. 
+                            The top-k database images with the highest similarity scores are selected as the candidate locations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stage">
+        <h3 class="title is-4">Stage 2: Language-based Fine Reasoning</h3>
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            We use a multimodal large language model (MLLM) to reason about the best candidate location. 
+                            We prompt the MLLM to describe the differences between the query image and each candidate image in a pairwise manner. 
+                            The MLLM then reasons about the best candidate based on these descriptions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="result">
+        <h2 class="title is-3">Quantitative Evaluation</h2>
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-five-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            We evaluate <b>LLM-VPR</b> in three datasets. 
+                            Quantitative and qualitative results indicate that our method outperforms vision-only solutions 
+                            and performs comparably to supervised methods without training overhead. 
+                            Evaluation results are listed in the table below.
+                            The best performances are in <b>bold</b> and the second best are <u>underlined</u>.
+                            Please refer to our paper for more detailed results and discussions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="misc/images/table.jpg" alt="Results Table">
+    </div>
+
+    <div class="result">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-five-fifths">
+                    <div class="content has-text-justified">
+                        <p>
+                            Below are some qualitative results, including candidate images, abbreviated versions of the prompts and the genereated responses.
+                            For complete prompts and responses, please refer to the paper and the code repository.
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="misc/images/Demo.pdf" alt="Demo Image1">
+        <br>
+        <br>
+        <img src="misc/images/Demo2.pdf" alt="Demo Image2">
+        <br>
+        <br>
+        <img src="misc/images/Demo3.pdf" alt="Demo Image3">
+        <br>
+        <br>
+        <img src="misc/images/Demo4.pdf" alt="Demo Image4">
+        <br>
+        <br>
+        <img src="misc/images/Demo5.pdf" alt="Demo Image5">
+        <br>
+        <br>
+    </div>
+
+    <!-- <div class="bibtex-section">
+        <h2 class="title is-3">BibTeX</h2>
+        <div class="bibtex">
+<pre>
+@misc{wang2024lifelongmemory,
+    title={LifelongMemory: Leveraging LLMs for Answering Queries in Long-form Egocentric Videos},
+    author={Ying Wang and Yanlai Yang and Mengye Ren},
+    year={2024},
+    eprint={2312.05269},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+</pre>
+        </div>
+    </div> -->
+
+
+            <!-- <section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    The work was done when Bowen Li and Pranay Reddy were interns at The Robotics Institute, CMU. The authors would like to thank all members of the Team Explorer for providing data collected from the DARPA Subterranean Challenge. Our code is built upon <a href="https://github.com/fanq15/FewX">FewX</a>, for which we sincerely express our gratitute to the authors.
+  </div>
+</section> -->
+    <br>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="content has-text-centered">
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column is-8">
+                            <div class="content">
+                                <p>
+                                    This website is licensed under a <a rel="license"
+                                        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                                    This webpage template is from <a
+                                        href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                                    We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing
+                                    and
+                                    open-sourcing this template.
+                                </p>
+                            </div>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+        </div>
+        </div>
+        </footer>
+
+</body>
+
+</html>
