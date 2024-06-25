@@ -23,7 +23,7 @@ If the retrieval results is correct, the set is as True, otherwise False. This *
 
 ### Try Vision-Language Refiner
 
-Write your own api keys and change the fill the directory of the saved data in ```main.py``` and run:
+Write your own api keys and change the directory of the saved data in ```main.py``` and run:
 
 ```
 python main.py
