@@ -14,7 +14,7 @@ Save your Coarse retrieval results as the followng structures:
 
 ```
 └──── <working directory>/
-    ├──── data_name/
+    ├──── <data_name>/
     |   ├──── Query.png
     |   ├──── Top1_True/False.png
     |   ├──── ...
